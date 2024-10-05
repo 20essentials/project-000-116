@@ -1,0 +1,54 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100dvh;
+  animation: zoomBg 10s linear alternate infinite;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  background-image: repeating-linear-gradient(45deg,
+      #fff 0px 40px,
+      #000 40px 80px);
+
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(-45deg,
+        #fff 0px 40px,
+        #000 40px 80px);
+    mix-blend-mode: difference;
+  }
+}
+
+@keyframes zoomBg {
+  0% {
+    zoom: .1;
+  }
+
+  25% {
+    zoom: .25;
+  }
+
+  50% {
+    zoom: .5;
+  }
+
+  75% {
+    zoom: .75;
+  }
+
+  100% {
+    zoom: 1;
+  }
+}
